@@ -1,0 +1,1154 @@
+import time
+import sys
+
+player = ''
+player_name = ''
+universe = 'Вселенная'
+pencil = 'Карандаш'
+sharpener = 'Точилка'
+lesha='Леша'
+nikita='Никита'
+alisa = 'Алиса'
+sasha = 'Саня'
+dmitri = 'Дмитрий'
+
+#цветные реплики через ANSI escape code
+class Color:
+    tech_color = '\u001b[47;1m'
+    tech_grey = '\u001b[90m'
+    user = '\u001b[35;1m'
+    universe = '\u001b[34;1m'
+    character1 = '\u001b[38;5;105m'
+    character2 = '\u001b[38;5;202m'
+    character3 = '\u001b[38;5;31m'
+    character5 = '\u001b[31;1m'
+    character6 = '\u001b[36;1m'
+    character8 = '\u001b[30;1m'
+    alarm = '\u001b[38;5;197m'
+    reset = '\u001b[0m'  # сброс цвета
+
+
+# деф для постепенного вывода текста
+def slow_print(text, delay=0.05):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+def normal_print(text):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(0.03)
+    print()
+def fast_print(text):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(0.01)
+    print()
+
+### аутро
+def outro(player_name):
+    slow_print("Поздравляем. Вы прошли нашу игру.")
+    slow_print("Спасибо за проведенное вместе время <3")
+    sys.exit()
+
+
+# знакомство
+slow_print("Привет! Добро пожаловать в нашу игру!")
+slow_print("Придумай имя для главной героини:")
+player = input("").capitalize()
+player_name = player
+# интро
+normal_print(f"Приятно познакомиться, {player_name}!")
+normal_print("В этой игре ты будешь действовать от лица девочки, от которой зависит равновесие всей игровой вселенной.")
+normal_print("Тебя ждет интересное приключение.")
+normal_print("Чтобы достичь своей цели и пройти игру, тебе нужно пробраться через 5 уровней.")
+normal_print("Внимание и интуиция будут твоими главными союзниками в этом путешествии.")
+print('ㅤ')
+fast_print('•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*')
+print('ㅤ')
+normal_print("Готов(а) ли ты начать? (да/нет)")
+choice_0 = input()
+if choice_0 == 'да':
+    normal_print('Хорошей тебе игры!')
+    normal_print('Делай выборы с умом :)')
+else:
+    normal_print('Как жаль!')
+    normal_print('Мы будем ждать тебя вновь.')
+    normal_print('Чтобы вернуться в начало, ты можешь перезапустить игру в любой момент')
+    sys.exit()
+
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы продолжить...{Color.reset}")
+input()
+
+fast_print("""
+╔══╗╔═══╗╔══╗─╔══╗╔══╗╔══╗
+║╔╗║║╔═╗║║╔╗║─║╔╗║║╔╗║║╔═╝
+║║║║║╚═╝║║║║║─║║║║║║║║║║
+║║║║║╔══╝║║║║─║║║║║║║║║║
+║║║║║║───║╚╝║╔╝║║║║╚╝║║║
+╚╝╚╝╚╝───╚══╝╚═╝╚╝╚══╝╚╝
+""")
+
+print(f"{Color.tech_color} -- ПРОЛОГ: разговор со Вселенной -- {Color.reset}")
+print()
+
+# начало диалога
+def print_dialogue(player_name, player_dialogue, universe_dialogue=None):
+     if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+     if universe_dialogue is not None:
+        print(f"{Color.universe}{universe}:{Color.reset} ", end='')
+        slow_print(universe_dialogue)
+print_dialogue(player_name, "Где я?", "Ты нарушила баланс.")
+print_dialogue(player_name, "Ничего не понимаю. Где я?", "Это середина мира. А это мировое дерево - моё дерево.")
+
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы посмотреть на дерево...{Color.reset}")
+input()
+
+print("""
+
+
+               ²╘ ª    ∞   ¬        ▒▒▒    ╦            ╓⌐     ª                
+                 ⌐ Ç┌              ▒▒▒▒▒▒▒▒▒█▄            ≥π¼  ƒ                
+               ª▐   ½            ╒▒▒▒▒▒▒▒▒▒▒▒█▓▌        ⌐ ²  ¬ ∩                
+                ▐   √          ╓ ▒▒▒▒▒▒▒▒▒▒▒▒▒██               ∩                
+                ▐ ⌐  √         ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▓▓Ç  ╓        ∩                
+                ▐≡σ   É∩░░╚▒▒▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒█▒▒██    ╔≤▒▒╦∩  ┌╔╦▒▒▒          
+            ┌≡▒▒▒   ² ▒░Σ   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▒█▓▓▀╝█▒▒░░░▒ ²▒▒▒▒░▒░          
+         »╦∩ ░░░⌠  ╓╗▓▒▒╜  ┌▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▒Ç ▒▒▒▒▒▒▒Æ  ▒▒▒ ░«σε        
+                ╞▒▒▒▒▒▒æ  ╒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▓▒▒▒▒▒▒▒▒¬δ╓⌐              
+              ▄▓▒▒▒▒▒▀▒▒▒é▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▒▒▒▒▒▒▒▒▒▒▓▒▓▌ª▒▒▓▒▒≡╜▒▒▓▓█          
+             ╔▒▒▒░▒²▒▒╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒█▓█▓▓▄▓▄╖⌐╔▓▓████▀          
+            ╔▒▓▒▒▒∩▒▒▓Æ▄▒▒▒╨▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒█▀▓█▓█▒▓██▀▓█▓▒         
+           ²▀▒▒▒▒▒≤╦  ▐▒█∩╓▒▒▒░░▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀▀▒▒▒  ╔▒▒▒██▌           
+           ∩ ▒▒▒▒╓▒   ╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▀▒▒▒▒▒▒▒▒▒▒▒▒     ª ╓▒▒▓▒█▀   Γ        
+            º▓▀▒╣█▒▒∩ ª▒▀▒▒▒▒▒╩▒▒▒▒▒▒▒█████▒▒▒▒▒▒▒▒çª╖ √µ ╓ ≈Φ└╙∩  «░░Γ         
+                  ²≡░░░ ╓¬⌐▐▒ çµ«çç░╦╦▄███▄▄┐          ¬«  ⌐      ∩             
+                  ░▒╦╦╦▒▒╗░░▒▒▒▒▒▓▒▒▒Ü▒∩ ▒░░░░░░▒█▀▀▒▒▒▒▒  ╜░²                  
+               ∩  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ñ▒▓▒▒▒░╧≡∞╔∞║█░∩   ∞εå  ≡                   
+               Γ  ╓⌐╓ ⌐░░░░▄▒▒▒▒▒▒▒▒▒▒▒▒▒░░╓░▒╔¬≥⌐¬░░░▒»   ÿÑΓ                  
+               ╠ ÿß ªº ¬ ¬²░░░░░░╙▀▒▒╜²ªΓ░░▒▒▒▒▒▒¡∩≥∩   ª ¬Ç ⌐            
+
+
+      """)
+
+print_dialogue(player_name, "Вот это?! Что это вообще", "НЕ ТРОГАЙ")
+print_dialogue(player_name, ".....")
+print_dialogue(player_name, "Я вообще ничего не понимаю. Может, объяснишь мне что-нибудь?", "Ты не первая собственная версия, которая задает мне вопросы.")
+secret = input("Скажите Вселенной, если вам что-то известно: ")
+print("secret")
+if secret == "невежество":
+    print_dialogue(player_name, "Невежество. Я все знаю.", "?!? Как это возможно?")
+    print_dialogue(player_name, "Не знаю. Попала в пространственно-временной континуум или типа того.", "То есть... ты все знаешь.")
+    print_dialogue(player_name, "Ну да. Экзамен через пару недель как-никак. Какая там контрольная.", "Значит мне больше нет смысла тебя нравоуичть и притворяться загадочной?")
+    print_dialogue(player_name, "Хз. Я уже к тебе привыкла.", "...")
+    print_dialogue(player_name, None, "Тогда, может… по пивку?")
+    print_dialogue(player_name,"Ха-ха. По пивку :)")
+    print('')
+    outro(player_name)
+    sys.exit()
+else:
+    pass
+print_dialogue(player_name, "Класс. Полчаса назад я писала контрольную по питону и преподаватель стыдил меня за GPT ")
+slow_print("перед всей группой, а сейчас я открываю глаза и spacecore затирает мне про многомерные пространства. Очешуенно.")
+slow_print("(про себя) Больше не буду ходить в ночные клубы по воскресеньям... ")
+print_dialogue(player_name, None, "Чтобы вернуться домой, тебе нужно выполнить своё предназначение...")
+print_dialogue(player_name, "Какое нафиг предназначение? Я никогда не хотела быть питонисткой. Что я по-твоему делаю на медиакоме?")
+print_dialogue(player_name, "Хочешь сказать, что строчить вонючий код — моя судьба?")
+print_dialogue(player_name, None, "Просто скатай так, чтобы тебя не заметили...")
+print_dialogue(player_name, None, "Все другие версии тебя из параллельных вселенных с этим справились. Все кроме тебя. ")
+print_dialogue(player_name, None, "Не справишься — вселенная схлопнется. Всё поняла?")
+print_dialogue(player_name, "Если честно нет.", "У меня нет времени. Не подведи.")
+print_dialogue(player_name, "…")
+print_dialogue(player_name, "Б#@")
+
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы приступить к новой главе и продолжить игру...{Color.reset}")
+input()
+
+
+fast_print("""
+╔══╗─╔══╗╔══╗╔══╗─╔══╗────╔╗
+║╔═╝─║╔╗║║╔╗║║╔╗║─║╔╗║───╔╝║
+║║───║║║║║╚╝║║╚╝╚╗║╚╝║───╚╗║
+║║───║║║║║╔╗║║╔═╗║║╔╗║────║║
+║║──╔╝║║║║║║║║╚═╝║║║║║────║║
+╚╝──╚═╝╚╝╚╝╚╝╚═══╝╚╝╚╝────╚╝
+
+""")
+
+print(f"{Color.tech_color} -- Глава 1:  Точилочный ад-- {Color.reset}")
+slow_print("Тебя оглушило. Ты открываешь глаза в классе.")
+print_dialogue(player_name, "Фух. Приснится же. Ну и отходняк конечно....")
+print("*звуки грохота*")
+slow_print("Ты осматриваешься.")
+print_dialogue(player_name, "Стоп… Здесь другие обои.")
+slow_print("Ты поворачиваешь голову налево в надежде увидеть своего одногруппника.")
+print()
+
+print(f"{Color.tech_grey}Нажми Enter, чтобы посмотреть на Лешу...{Color.reset}")
+input()
+slow_print("Вместо него видишь ЭТО:")
+
+print("""
+▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╙º       ª╜▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒▒▒░▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ÆÆ╦╦≡ë╓     ╝▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒▒▒▒▒▒░▒▒
+▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓███▓▓▓▒▒▒░∩        ╚▒▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▒▒▒▒░░▒
+▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓███▓▓▓▒▒▒░∩        ▐▒▒▒▒▒▒▒▒▒▒▒░▒░▒░░▒▒▒▒▒▒░▒▒▒▒▒
+▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓███▓▓▓▒▒▒░          ▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒░░░░░▒▒
+▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓█▓▓▓▒▒▒▒░          ▒▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒░░░░░▒▒▒
+▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒░░          ▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░▒░▒▒▒
+▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒░░          ▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░▒▒▒░▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▒▒▒░∩          ▒▒▒▒▒▒▒▒▒▒░░▒▒▒░░░░░░▒░░▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▀▓▓▓▓▓▓▓▓╫▒▒ΦÆ╗╗▄   ▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░░░░░▒▒▒▒▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓███████▓▒ ╚▀╚▒   ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╫██████▓▓▒        ª▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▒▒▒
+▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╫█▓█████▓▒      ▄╕ ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒░░░░▒▒▒▒▒▒▒
+▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╫█▓█████▓▒         ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╫▓█████▓▓▒     ╓▄▄ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╢▓█████▓▓▒∩    ▒▓▀ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╣▓█▓███▓▓▒∩    º▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╣██▓███▓▓▒∩       ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╣██████▓▓▒∩       ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓    ╙▒▒▓▓██████▓▓▒∩       ╞▒▒╝╝╝╝╝▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▄    ²╚▀▓█████▓▓▒∩               ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓      ╙▒▓██▓▓▓▒∩               ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▄       ╚▓▓▓▓▒∩               ╢▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓        ╙▀▒▒░               ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▄           ºº ºªª          ╙▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓                           ª▒▒▒▒▒Ü▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌                     ╫▒▒▒ └▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒                      ▒▒▒æ≡▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒                      ╫▒▒▌ ║▒▒▒▒▒▒▒▒▒▒▒▒▒
+▓▓▓▓▓▓▓▓▓▀▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒Γ                      ╞▀▀▓ ╚▀▀▀▀▀▀▀▀▀▀▀▀▀
+                ┌  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒∩                         ▀≡┘             
+     ╔▄▄╣▓▓▓▓╣▓▓▓Æ▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▀▀▓▒▒                  ╓▄▄  ╓  ▄ ≈≡▒ ╓ª╬▄╓ ⌐╓╓ 
+              ∞              ººÜ ººº º º ▀ º          ≤        ºº   º∞∩╚⌂ º     
+
+""")
+
+print_dialogue(player_name, "ВТФ !??!?!??")
+print_dialogue(player_name, "Что за убогая канцелярия размером с человека?")
+
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы посмотреть поближе..{Color.reset}")
+input()
+
+def print_dialogue(player_name, player_dialogue, pencil_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if pencil_dialogue is not None:
+        print(f"{Color.character1}{pencil}:{Color.reset} ", end='')
+        slow_print(pencil_dialogue)
+
+print_dialogue(player_name, None, "Привет!")
+print_dialogue(player_name, "ЛЕША??? Ты теперь карандаш?", "Ну да")
+print_dialogue(player_name, ".....")
+print_dialogue(player_name, "Ты хочешь сказать, теперь я учусь с живыми карандашами?")
+print_dialogue(player_name, None, "Нет блин, с мертвыми. Чтобы вернуть нас в нормальный вид, ты сначала должна  добраться до своей вселенной.")
+print_dialogue(player_name, "(про себя) Гребаная 'Груша'! Кофе оттуда всегда казалось мне странным.")
+print_dialogue(player_name, "И что мне тогда делать в этой?", "Просто оставайся в живых и делай что должна.")
+print_dialogue(player_name, "(про себя) И с каких пор я тебе вообще должна…")
+print_dialogue(player_name, "Что именно мне нужно делать?", "Ну ты знаешь. Укрывайся от врагов. Ты ведь теперь тоже карандаш.")
+print_dialogue(player_name, "...")
+print_dialogue(player_name, "ЧТООООООО")
+print_dialogue(player_name, None, "У меня нет времени. Не подведи.")
+print_dialogue(player_name, "(про себя) И он туда же…")
+
+print()
+
+slow_print("Ты решила пройтись по классу.")
+slow_print("По всей видимости, сейчас перемена между сдвоенными парами по питону.")
+slow_print("Ты посмотрела на часы.")
+slow_print("14:35")
+print_dialogue(player_name, "До контрольной осталось пять минут??")
+print_dialogue(player_name, "Мда, надо что-нибудь придумать")
+print()
+slow_print("У тебя с собой не было телефона с GPT, поэтому ты попыталась авторизоваться в телеграме через вышкинский коспьютер ")
+print()
+
+
+def print_dialogue(name, message):
+    print(f"{name}: {message}")
+
+# дефы для работы с номером телефона
+def check_phone_number(phone_number):
+    return len(phone_number) == 11 and phone_number.isdigit()
+
+def format_phone_number(phone_number):
+    return f"{phone_number[:1]}-{phone_number[1:4]}-{phone_number[4:7]}-{phone_number[7:9]}-{phone_number[9:]}"
+
+# деф для авторизации
+def authenticate():
+    while True:
+        print(f"{Color.tech_grey}Введите телефонный номер, к которому привязан аккаунт: {Color.reset}")
+        phone_number = input().strip()
+        if not check_phone_number(phone_number):
+            print("Ошибка: телефонный номер должен состоять из 11 цифр. Попробуйте ввести номер еще раз")
+            continue
+        formatted_phone_number = format_phone_number(phone_number)
+        print(f"Введенный номер телефона: {formatted_phone_number}")
+        while True:
+            print(f"{Color.tech_grey}Введите пароль от телеграма: {Color.reset}")
+            password = input().strip()
+            if not password:
+                print_dialogue(player_name, "Я точно помню пароль!")
+                continue
+            print(f"Введенный пароль: {'*' * len(password)}")
+            break
+        break
+
+# дефы для имитации процесса загрузки
+def loading():
+    print("Загрузка...")
+    for i in range(1, 101):
+        time.sleep(0.1)  # уменьшаем задержку до 0.1 секунды
+        sys.stdout.write(u"\u001b[1000D")
+        sys.stdout.flush()
+
+        if i == 99:
+            print("")
+            print("Ошибка 404: Соединение потеряно.")
+            print("Администратор Д. Б. заблокировал вам доступ.")
+            break
+
+        sys.stdout.write(str(i) + "% ")
+        sys.stdout.flush()
+
+# вызов дефов для демонстрации
+authenticate()
+loading()
+
+def print_dialogue(player_name, player_dialogue, sharpener_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if sharpener_dialogue is not None:
+        print(f"{Color.character2}{sharpener}:{Color.reset} ", end='')
+        slow_print(sharpener_dialogue)
+
+print_dialogue(player_name, "ЧТООООО")
+print_dialogue(player_name, "РАНЬШЕ ТАКОГО НЕ БЫЛО!!")
+slow_print("(про себя) Мне капец. ")
+
+slow_print("В этот момент ты услышала как кто-то агрессивно стучит по кнопкам клавиатуры")
+print_dialogue(player_name, "Как же она чувствует... ")
+slow_print("Ты обошла весь ряд и заметила перед собой странную девочку, у которой вместо головы была точилка")
+slow_print("Несмотря на ее аутентичность, ты понимала, что персона перед тобой может стать твоим последним шансом на спасение")
+print_dialogue(player_name, "(про себя) Ну что-ж, других вариантов у нас нет...")
+
+print(f"{Color.tech_grey}Нажми Enter, чтобы проложить поздороваться.{Color.reset}")
+input()
+
+print_dialogue(player_name, "Привет!")
+print_dialogue(player_name, None, "(неприветливо) Ну привет.")
+print_dialogue(player_name, "Не видела тебя здесь раньше. Откуда ты?")
+
+print(f"{Color.tech_grey}Подсказка: с этого момента ты можешь выбирать варианты ответов в диалогах.{Color.reset}")
+print(f"{Color.tech_grey}На выбор тебе будет даваться несколько реплик. Но выбрать ты можешь только одну.{Color.reset}")
+print(f"{Color.tech_grey}Отменить выбор невозможно.{Color.reset}")
+print(f"{Color.tech_grey}Нажми Enter, чтобы проложить диалог.{Color.reset}")
+input()
+
+def handle_dialogue(dialogue_node, player_name):
+    print(f"{Color.character2}Точилка:{Color.reset} ", end='')
+    slow_print(dialogue_node["dialogue"])
+    response = input("выберите вариант: ")  # получаем ответ игрока
+    if response in dialogue_node["options"]:
+        next_node = dialogue_node["options"][response]
+        if "response" in next_node:
+            print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+            slow_print(next_node["response"])
+        if "options" in next_node:
+            return handle_dialogue(next_node, player_name)
+        elif "outcome" in next_node:
+            print(next_node["outcome"])
+            if "result" in next_node:
+                return next_node["result"]
+    else:
+        print(f"{Color.alarm}неверный выбор.{Color.reset}")
+        return False
+
+dialogue_tree = {
+    "start": {
+        "dialogue": "Я Влада. Перевелась к вам из другой группы.\n(1) Почему?",
+        "options": {
+            "1": {
+                "dialogue": "У меня здесь друг.\n(1) Друг-карандаш?",
+                "options": {
+                    "1": {
+                        "dialogue": "Ну да. Вот сижу жду его. А что здесь такого?\n(1) Ничего себе. Интересный дуэт получается.\n(2) Но как это вообще возможно???",
+                        "options": {
+                            "1": {
+                                "dialogue": "Да. Надеюсь, он скоро придет и мы вместе разнесем эту контрольную! \n (1) Он не придет. К телеграму нельзя подключиться и шансы списать равны нулю.\n(2) Удачи вам!",
+                                "options": {
+                                    "1": {
+                                        "dialogue": "А че сама тогда сюда приперлась?",
+                                        "outcome": "Точилке не понравилось, что ты приняла их с Карандашом за идиотов, которые ничего сами не могут.",
+                                        "result": "negative"
+                                    },
+                                    "2": {
+                                        "outcome": "Ты произвела нейтральное впечатление на Точилку.",
+                                        "outcome": "Всю контрольную ты провела в одиночестве, но смогла списать у соседа слева. Тебе просто повезло.",
+                                        "result": "positive"
+                                    }
+                                }
+                            },
+                            "2": {
+                                "dialogue": "Слушай, ты какая-то странная. Что тебе от меня нужно?\n(1) Просто подошла познакомиться.\n(2) Хотела пообсуждать мужичка с онлайн-курса со скринкастами…",
+                                "options": {
+                                    "1": {
+                                        "response": "Просто подошла познакомиться.",
+                                        "dialogue": "Ну и иди тогда дальше.",
+                                        "outcome": "Ты не понравилась Точилке. Точилка не любит глупых вопросов и пустых слов.",
+                                        "result": "negative"
+                                    },
+                                    "2": {
+                                        "dialogue": "Оо, наш человек.",
+                                        "outcome": "Вы нашли общую тему для разговора с Точилкой и подружились. Вы сели вместе и успешно списали. Точилка вам активно помогала",
+                                        "result": "positive"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# запускаем диалоговое дерево
+
+while True:
+    result = handle_dialogue(dialogue_tree["start"], player_name)
+    if result == "negative":
+        print(f"{Color.alarm}Вам не удалось пройти уровень!")
+        print(f"{Color.alarm}Попробуйте поговорить с Точилкой еще раз:")
+        print()
+    elif result == "positive":
+        print("Ура!Вы переходите на следующий уровень :)")
+        break
+
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы приступить к новой главе и продолжить игру...{Color.reset}")
+input()
+
+
+fast_print("""
+╔══╗─╔══╗╔══╗╔══╗─╔══╗───╔══╗
+║╔═╝─║╔╗║║╔╗║║╔╗║─║╔╗║───╚═╗║
+║║───║║║║║╚╝║║╚╝╚╗║╚╝║───╔═╝║
+║║───║║║║║╔╗║║╔═╗║║╔╗║───║╔═╝
+║║──╔╝║║║║║║║║╚═╝║║║║║───║╚═╗
+╚╝──╚═╝╚╝╚╝╚╝╚═══╝╚╝╚╝───╚══╝
+
+""")
+
+print(f"{Color.tech_color} -- Глава 2:  Голый псих -- {Color.reset}")
+slow_print("Тебя оглушило. Ты открываешь глаза в классе.")
+print_dialogue(player_name, "Сколько можно?! Еще парочка таких же уровней и я превращусь в калеку.")
+print(f"{Color.tech_grey}Нажми Enter, чтобы осмотреться{Color.reset}")
+input()
+def print_dialogue(player_name, player_dialogue, lesha_dialogue=None, nikita_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if lesha_dialogue is not None:
+        print(f"{Color.character1}{lesha}:{Color.reset} ", end='')
+        slow_print(lesha_dialogue)
+
+print_dialogue(player_name, None, "Ерунда, легкотня")
+print_dialogue(player_name, "....ААААА ЧТО ЭТО.", "? Что такое?")
+print_dialogue(player_name, "БОГА РАДИ ПРИКРОЙСЯ.",
+               "А. В этом мире древний человек не додумался до набедренной повязки :)")
+print_dialogue(player_name, None, "По-моему кайф мирочек")
+print_dialogue(player_name, "Ты совсем мне не помогаешь!!!", "Лучше возьми себя в руки и найди хорошее место")
+print_dialogue(player_name, None, "Если не поторопишься, мы все умрём из-за тебя!")
+print_dialogue(player_name, "Да помню я!!!!!")
+print_dialogue(player_name, "Никто не озвучивал, что будет ТАК сложно Т_Т")
+print_dialogue(player_name, None, "Никита тебя искал, поговори с ним скорее! Опять разорался.")
+
+
+def print_dialogue(player_name, player_dialogue, lesha_dialogue=None, nikita_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if lesha_dialogue is not None:
+        print(f"{Color.character1}{lesha}:{Color.reset} ", end='')
+        slow_print(lesha_dialogue)
+    if nikita_dialogue is not None:
+        print(f"{Color.character3}{nikita}:{Color.reset} ", end='')
+        slow_print(nikita_dialogue)
+
+
+print_dialogue(player_name, None, None, "ПРИВЕТ!!!!!!!")
+print_dialogue(player_name, "Офигеть, в моей вселенной ты рекламщик! Что ты тут делаешь????", None, "УЧУСЬ!")
+print_dialogue(player_name, "ИДИ СЮДА")
+print_dialogue(player_name, None, None, "НЕ ТАК БЛИЗКО, пожалуйста. Без обнимашек сегодня.")
+print_dialogue(player_name, "Громкий, как всегда. Ты знаешь, что сегодня зачёт?", None, "Зачем? Я и так всё знаю")
+
+print(f"{Color.tech_grey}Подсказка: с этого момента ты можешь выбрать варианты ответов в диалогах.{Color.reset}")
+print(f"{Color.tech_grey}Нажми Enter, чтобы проложить диалог.{Color.reset}")
+input()
+
+def handle_dialogue(dialogue_node, player_name):
+    print(f"{Color.character3}Никита:{Color.reset} ", end='')
+    slow_print(dialogue_node["dialogue"])
+    response = input("выберите вариант: ")  # получаем ответ игрока
+    if response in dialogue_node["options"]:
+        next_node = dialogue_node["options"][response]
+        if "response" in next_node:
+            print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+            slow_print(next_node["response"])
+        if "options" in next_node:
+            return handle_dialogue(next_node, player_name)
+        elif "outcome" in next_node:
+            print(next_node["outcome"])
+            if "result" in next_node:
+                return next_node["result"]
+    else:
+        print(f"{Color.alarm}неверный выбор.{Color.reset}")
+        return False
+
+dialogue_tree = {
+    "start": {
+        "dialogue": " Что-то хотела? \n (1) Мне нужна твоя помощь. \n (2) Я забыла второй телефон дома.",
+        "options": {
+            "1": {
+                "dialogue": "Посмотрим",
+                "response": "Я принесла тебе поесть",
+                "outcome": "Ты выбрала понадеяться на Никиту. Это было плохое решение\n Он объелся и смог помочь тебе только с одной задачей. \nТы написала контрольную на низкий балл.",
+                "result": "negative"
+            },
+            "2": {
+                "dialogue": "Не глупая, и так напишешь \n (позирует зеркалу) \n (1) Мы не сядем сегодня вместе. \n (2) Не одолжишь телефон? ",
+                "options": {
+                    "1": {
+                        "dialogue": "Почемуу?",
+                        "response": "Мне не хочется, извини. Нужно сосредоточиться (сделала обиженный вид и ушла)",
+                        "dialogue": "Как скажешь… Удачи.",
+                        "outcome": "Твоя гордость оказалась сильнее. Ты села одна и лишила себя шанса списать, зато сохранила чувство собственного достоинства ",
+                        "result": "negative"
+                    },
+                    "2": {
+                        "dialogue": "Какой из? У меня из 4: \n (1) Хуавей \n (2) Айфончик \n (3) Пошарпанный самсунг \n (4) Странный телефон",
+                        "options": {
+                            "1": {
+                                "outcome": "Хуавей разрядился во время занятия, он оказался бесполезным.",
+                                "result": "negative"
+                            },
+                            "2": {
+                                "outcome": "Ты выбрала телефон Никиты. Новенький айфончик про макс с высокоскоростным интернетом помог написать тебе на 10/10",
+                                "result": "positive"
+                            },
+                            "3": {
+                                "outcome": "Пошарпанный самсунг тебя не подвел, ты написала контрольную нормально",
+                                "result": "positive"
+                            },
+                            "4": {
+                                "outcome": "Странный телефон оказался фейовым и нерабочим кирпичем!",
+                                "result": "negative"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+# запускаем диалоговое дерево
+
+while True:
+    result = handle_dialogue(dialogue_tree["start"], player_name)
+    if result == "negative":
+        print("")
+        print(f"{Color.alarm}Вам не удалось пройти уровень!")
+        print(f"{Color.alarm}Попробуйте поговорить с Никитой еще раз:")
+        print("")
+    elif result == "positive":
+        print("Ура! Вы списали контрольную и переходите на следующий уровень :)")
+        break
+
+print(f"{Color.tech_grey}Нажми Enter, чтобы перейти на новый уровень.{Color.reset}")
+input()
+
+fast_print("""
+╔══╗─╔══╗╔══╗╔══╗─╔══╗───╔══╗
+║╔═╝─║╔╗║║╔╗║║╔╗║─║╔╗║───╚═╗║
+║║───║║║║║╚╝║║╚╝╚╗║╚╝║───╔═╝║
+║║───║║║║║╔╗║║╔═╗║║╔╗║───╚═╗║
+║║──╔╝║║║║║║║║╚═╝║║║║║───╔═╝║
+╚╝──╚═╝╚╝╚╝╚╝╚═══╝╚╝╚╝───╚══╝
+""")
+print(f"{Color.tech_color} -- Глава 3:  Курочка-хохотушка -- {Color.reset}")
+
+
+def print_dialogue(player_name, player_dialogue, lesha_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if lesha_dialogue is not None:
+        print(f"{Color.character1}{lesha}:{Color.reset} ", end='')
+        slow_print(lesha_dialogue)
+
+
+print_dialogue(player_name, 'Ну надо же, какие все в нашей группе разные. Так и не найти ко всем подход!',
+               " ко ко ко ко…?")
+slow_print('В очередной раз повернувшись к Лёше, ты упала со стула от неожиданности.')
+print()
+print_dialogue(player_name, "Только не это. Курицы. А где курицы, там всегда…..")
+print()
+slow_print("Перья.")
+print()
+print_dialogue(player_name, "У мен….але…а…нн…  ")
+print_dialogue(player_name, "…ААААПЧХИ……….у.","коко ко… Аллергия на себя? Ко, пхахахха, ко ко, тебе лучше тут не задерживаться, коко !)")
+print_dialogue(player_name, None, "Здесь бродят голодные лисы... Опасные ребята")
+print_dialogue(player_name, None, "Быстрее проходи уровень! Ну же. ДАВАЙ, Я НЕ ХОЧУ БЫТЬ ПЕРНАТЫМ.")
+print_dialogue(player_name, "Всё, иду...")
+
+print()
+slow_print('Аудитория больше была похожа на курятник, причём пустой. Ты решила осмотреться.')
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы перейти на осмотреть аудиторию.{Color.reset}")
+input()
+
+def print_dialogue(player_name, player_dialogue, alisa_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if alisa_dialogue is not None:
+        print(f"{Color.character5}{alisa}:{Color.reset} ", end='')
+        slow_print(alisa_dialogue)
+
+print_dialogue(player_name, " ")
+print_dialogue(player_name, "ААЙ— !!!!!!!!!!!!!!!!!", "ОЙ, ПРОСТИ ПОЖАЛУЙСТА!")
+print_dialogue(player_name, "ТЫ НАЛЕТЕЛА НА МЕНЯ! буквально.", "…кхм. Хахаха")
+print_dialogue(player_name, None, ".......)")
+print_dialogue(player_name, None, "ХАХАХАХВХВХХАХА")
+print_dialogue(player_name, "Полегче… Что происходит? ")
+print()
+slow_print('Внезапно все курицы повыскакивали с верхних полок и начали беготню.')
+print()
+print_dialogue(player_name, " КУДА ВСЕ БЕГУТ? ")
+
+print(f"{Color.alarm}Подсказка: спрячься от Лиса, пока не поздно{Color.reset}")
+def start_game():
+    slow_print("Куда ты спрячешься?")
+    slow_print("     (1) под парту")
+    slow_print("     (2) в окно")
+    slow_print("     (3) в шкаф")
+
+    choice = input("Ваш выбор: ")
+
+    if choice == '1':
+        slow_print(
+            "Рискованно. Кто не рискует, тот не пьёт. Ты уцелела! Крупно повезло, ведь лис перевернул половину аудитории и поубивал твоих одногруппников.")
+        print("Уровень пройден! Разве не чудесно?")
+    elif choice == '2':
+        slow_print("Чертвёртый этаж, но ты рискнула. Не сказать, что “спряталась”, но уцелела, хотя из-за того, что ты покинула локацию своей миссии, ты проиграла.")
+        print("Начинай с самого начала")
+        start_game()
+    elif choice == '3':
+        slow_print(
+            "Эти шкафы для книг… При всём желании ты туда не влезешь, извини. Тебя съели, пока ты пыталась протолкнуться в шкаф.")
+        print("Придётся попробовать ещё раз")
+        start_game()
+    else:
+        slow_print("Некорректный выбор. Пожалуйста, выберите один из предложенных вариантов.")
+        start_game()
+
+start_game()
+
+print_dialogue(player_name, "(⊙_⊙)")
+print_dialogue(player_name, "ЧТО ЭТО, ЧЁРТ ВОЗЬМИ, БЫЛО?",
+               "Какой-то голодный пытливый ум пробрался в корпус. Очень голодный… Видимо, ФКН…")
+print_dialogue(player_name, "….")
+print_dialogue(player_name, " а…………...А…пЧХ И —.")
+print_dialogue(player_name, None, "Ну, ладно, хахахахаз. Хочешь анекдот?")
+print()
+slow_print("- Доктор, мне кажется, у моего сына грипп! ")
+slow_print("- Привит? ")
+slow_print("- Дратуте ")
+print()
+print_dialogue(player_name, " Хаха. Спасибо, но мне пора! ")
+print_dialogue(player_name, " (про себя) Это было очень странно")
+print()
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы перейти на новый уровень.{Color.reset}")
+input()
+
+fast_print("""
+╔══╗─╔══╗╔══╗╔══╗─╔══╗───╔╗╔╗
+║╔═╝─║╔╗║║╔╗║║╔╗║─║╔╗║───║║║║
+║║───║║║║║╚╝║║╚╝╚╗║╚╝║───║╚╝║
+║║───║║║║║╔╗║║╔═╗║║╔╗║───╚═╗║
+║║──╔╝║║║║║║║║╚═╝║║║║║─────║║
+╚╝──╚═╝╚╝╚╝╚╝╚═══╝╚╝╚╝─────╚╝
+""")
+print(f"{Color.tech_color} -- Глава 4: Расшифровка ночных жаворонков  -- {Color.reset}")
+def print_dialogue(player_name, player_dialogue, lesha_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if lesha_dialogue is not None:
+        print(f"{Color.character1}{lesha}:{Color.reset} ", end='')
+        slow_print(lesha_dialogue)
+slow_print('Когда шум прекратился, ты открыла глаза')
+slow_print('Но… ничего не увидела. Вокруг было темно.')
+print_dialogue(player_name, " …ненормальные. Из-за этих куриц я реально стала калекой >:(", "Это не от перьев, поверь мне.")
+slow_print('Ты трёшь глаза, но ничего не меняется. Вокруг кромешная темнота.')
+print()
+
+print_dialogue(player_name, "Почему здесь темно как в…", "Так ты правда ничего не видишь? Ого-го. ")
+print_dialogue(player_name, None, "Да у нас, оказывается, в группе есть жаворонки!")
+print_dialogue(player_name, "Ну да, по ночам я обычно сплю. Но какое это имеет значение сейчас?")
+print_dialogue(player_name, None, "Скажем так, этот мир буквально создан для меня, хехе")
+print_dialogue(player_name, "Такое ощущение, что ты от каждой вселенной кайфуешь")
+print_dialogue(player_name, None,"Мы в мире сов. Тут все ведут ночной образ жизни!!!")
+print_dialogue(player_name, None," А любители солнышка у нас в меньшинстве, муа-ха-ха-ха-ха-ха (￢‿￢ )")
+
+print()
+slow_print('Ты решила осмотреться.')
+print(f"{Color.tech_grey}Нажми Enter, чтобы осмотреть кабинет.{Color.reset}")
+input()
+slow_print('Сделав пару шагов вперёд, ты навернулась. Это был не стул. И не стол.')
+slow_print('На полу лежал кто-то из одногруппников. Этот “кто-то” даже не шелохнулся, хотя упала ты прямо на него.')
+print()
+print_dialogue(player_name, "………………")
+print_dialogue(player_name, "… я прошу прощения?")
+print_dialogue(player_name, "Мамочки. Надеюсь, оно живое.")
+print_dialogue(player_name, "Лишь бы лишь бы. Эй?")
+
+def print_dialogue(player_name, player_dialogue, sasha_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if sasha_dialogue is not None:
+        print(f"{Color.character6}{sasha}:{Color.reset} ", end='')
+        slow_print(sasha_dialogue)
+
+print_dialogue(player_name, None, " Да живой я. Слезь. ")
+print_dialogue(player_name, "Прости. Меня. Пожалуйста.", " Смотреть надо, куда идёшь.")
+print(f"{Color.tech_grey}Нажми Enter, чтобы слезть.{Color.reset}")
+input()
+slow_print('Странный чел перевернулся на другой бок и продолжил дремать прямо в проходе.')
+print_dialogue(player_name, "Как давно ты вот так вот лежишь?", "Сегодня - первую пару, а вообще - 18 лет")
+print_dialogue(player_name, "Так ты тоже жаворонок!!")
+print(f"{Color.tech_grey}Нажми Enter, чтобы попытаться поднять жаворонка.{Color.reset}")
+input()
+print_dialogue(player_name, "ъуь……… (про себя). Он же неподъемный!")
+print_dialogue(player_name, "Ану-ка вставай, нам нужно держаться вместе.", "Вот ещё. И эту контрольную писать, фу.")
+print_dialogue(player_name, "Ты должен мне помочь выбраться отсюда!", "Мир ко мне несправедлив. И к тебе несправедлив. Истина во сне.")
+print_dialogue(player_name, "Вставай НЕМЕДЛЕННО.")
+print_dialogue(player_name, None, " ZzZzZzZ ")
+print_dialogue(player_name, "Так. Я сейчас вернусь.")
+print()
+print(f"{Color.tech_grey}Нажми Enter, чтобы пойти на разведку.{Color.reset}")
+input()
+
+print('Вот что тебе удалось найти в аудитории: ')
+slow_print('1 - непонятная жидкость в чьём-то стаканчике на столе')
+slow_print('2 - смятая бумага')
+slow_print('3 - энергетик')
+slow_print('4 - киткат')
+slow_print('5 - фломастер')
+slow_print('6 - тетрадь')
+
+slow_print('Выбери предметы, которые помогут разбудить Саню.')
+
+
+def create_new_inventory():
+    items = [
+        ("непонятная жидкость", None),
+        ("смятая бумага", None),
+        ("энергетик", None),
+        ("киткат", None),
+        ("фломастер", None),
+        ("тетрадь", None)
+    ]
+
+    inventory = {}
+
+    while True:
+        choice = input("Нужно сделать выбор. Взять что-то (в), посмотреть инвентарь (и) или уже пойдём (п)? ")
+        if choice == "в":
+            item_number = input("Какой предмет возьмём? Введи номер: ")
+            if item_number.isdigit():
+                item_index = int(item_number) - 1
+                if 0 <= item_index < len(items):
+                    item, status = items[item_index]
+                    if status is None:
+                        items[item_index] = (item, "в инвентаре")
+                        print(f"{item} добавлен(а) в инвентарь.")
+                    else:
+                        print("Этот предмет уже в инвентаре.")
+                else:
+                    print("Такого варианта у нас нет")
+            else:
+                print("Такого варианта у нас нет")
+        elif choice == "и":
+            print("Сейчас у тебя в инвентаре:")
+            if not any(status for _, status in items):
+                print("Твои руки пусты, возьми что-нибудь!")
+            else:
+                for item, status in items:
+                    if status:
+                        print(item)
+        elif choice == "п":
+            if not any(status for _, status in items):
+                print("Ты не можешь выйти с пустыми руками!")
+            else:
+                break
+        else:
+            print("Такого варианта у нас нет")
+
+    for item, status in items:
+        if status:
+            inventory[item] = status
+
+    return inventory
+
+
+def use_item_from_inventory(inventory):
+    while True:
+        choice = input("Какой элемент из инвентаря вы хотите использовать? (Введите название): ")
+
+        # проверка, есть ли айтем в инвентаре
+        if choice not in inventory or inventory[choice] is None:
+            print(f"Какой еще '{choice}'? Поздно! Ты забыла его взять.")
+            continue
+
+        result = None  # пустая переменная результата
+
+        # ветки развития
+        if choice == "непонятная жидкость":
+            print(
+                "Ты разбудила Санчеса, но он разозлился и не стал тебе помогать. Одной в темноте списать очень сложно.")
+            result = "negative"
+        elif choice == "смятая бумага":
+            print(
+                "Ты разбудила Санчеса, но он разозлился и не стал тебе помогать. Одной в темноте списать очень сложно.")
+            result = "negative"
+        elif choice == "энергетик":
+            print(
+                "Молодец! Ты задобрила Саню и оживила его. +1 чел в команду. Он проснулся и проводил тебя до следующего уровня.")
+            result = "positive"
+        elif choice == "киткат":
+            print("Повезло, Саня оказался сладкоежкой. Он проснулся и был рад помочь тебе выбраться.")
+            result = "positive"
+        elif choice == "фломастер":
+            print("Ты разрисовала лицо спящему мальчику… Он проснулся и ушёл умываться, после чего заснул в туалете.")
+            result = "negative"
+        elif choice == "тетрадь":
+            print(
+                "Тетрадь оказалась максимально бесполезной. Саня подложил её под голову и спал дальше, совершенно не думая о том, чтобы помочь тебе.")
+            result = "negative"
+
+        # решено или нет
+        if result == "negative":
+            print("")
+            print("Вам не удалось пройти уровень!")
+            print("Попробуйте разбудить Саню еще раз:")
+            print("")
+            inventory = create_new_inventory()  # обнуление инвентаря
+        elif result == "positive":
+            print("Ура! Вы разбудили Саню и в этой темноте он провожает вас до следующего уровня :)")
+            break
+
+
+inventory = create_new_inventory()
+
+if not any(status for _, status in inventory.items()):
+    print("Ты не можешь выйти с пустыми руками!")
+else:
+    use_item_from_inventory(inventory)
+
+print(f"{Color.tech_grey}Нажми Enter, чтобы перейти к следующей главе.{Color.reset}")
+input()
+
+
+fast_print("""
+╔══╗─╔══╗╔══╗╔══╗─╔══╗───╔══╗
+║╔═╝─║╔╗║║╔╗║║╔╗║─║╔╗║───║╔═╝
+║║───║║║║║╚╝║║╚╝╚╗║╚╝║───║╚═╗
+║║───║║║║║╔╗║║╔═╗║║╔╗║───╚═╗║
+║║──╔╝║║║║║║║║╚═╝║║║║║───╔═╝║
+╚╝──╚═╝╚╝╚╝╚╝╚═══╝╚╝╚╝───╚══╝
+""")
+print(f"{Color.tech_color} -- Глава 5: Родной серпентарий -- {Color.reset}")
+
+slow_print('Открывая глаза в новом месте, ты совершенно не ожидала увидеть родные стены.')
+slow_print('Одногруппники выглядят, как люди,')
+slow_print('Как всегда все очень сильно опаздывают, ')
+slow_print('По-настоящему знают предмет в этой вселенной единицы.')
+slow_print('...')
+slow_print('Гармония.')
+print()
+
+
+def print_dialogue(player_name, player_dialogue, lesha_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if lesha_dialogue is not None:
+        print(f"{Color.character1}{lesha}:{Color.reset} ", end='')
+        slow_print(lesha_dialogue)
+
+print_dialogue(player_name,"*просыпается*")
+print_dialogue(player_name, None , "ДА!!!! ТЫ СПРАВИЛАСЬ")
+print_dialogue(player_name, "ЛЕША!")
+slow_print("Вы крепко обнялись")
+print()
+print_dialogue(player_name, None, "Молодчина. Теперь остался последний босс в этом файтинге…")
+print_dialogue(player_name, "О нет.", "О да. Это не сравнится ни с одной из предыдущих вселенных, согласна?")
+print_dialogue(player_name, "Не знаю, не знаю. Я как будто теперь уже могу сделать всё на свете, ха-ха")
+print_dialogue(player_name, None, "Тогда соберись!!!!!! Так. ")
+print_dialogue(player_name, None, "Поговори с ним. Вон, сидит за своим столиком")
+print_dialogue(player_name, "Ты думаешь стоит?????","Ты не поняла? Каждое слово способно полностью изменить ход событий")
+print_dialogue(player_name, None, "Поэтому ИДИ. ТУДА. И добудь нам десятки по курсу.")
+print_dialogue(player_name, "Э… нам? ", "Я думал, спустя столько времени и после всех приключений, мы подружились………..")
+print_dialogue(player_name, "Да. Даже наверное породнились. Мне жаль свои глаза.","(делает вид, будто ничего не помнит)")
+print_dialogue(player_name, None, "Меньше слов, больше дела. Погнала (o˘◡˘o)")
+print()
+slow_print('На радостях ты покинула своё место и подошла к семинаристу, разглядывающему что-то в мониторе. В руках он крепко держал стаканчик своего любимого кофе.')
+print()
+
+
+def print_dialogue(player_name, player_dialogue, dmitri_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if dmitri_dialogue is not None:
+        print(f"{Color.character8}{dmitri}:{Color.reset} ", end='')
+        slow_print(dmitri_dialogue)
+
+
+print_dialogue(player_name, "Доброе утро!", "Доброе.")
+print_dialogue(player_name, "Как ваше настроение?", "Бывало лучше. Не выспался сегодня совершенно( ")
+print()
+slow_print('На всю аудиторию стоит запах крепкого кофе. Несмотря на усталость, преподаватель выглядит очень даже бодренько.')
+print()
+print_dialogue(player_name, None, "Готовы к контрольной работе?")
+print_dialogue(player_name, 'Как никогда.', "Серьёзный настрой - это очень хорошо. Есть какие-нибудь вопросы ко мне?")
+print_dialogue(player_name, "Когда это все закончится?", "(поменялся в лице)")
+print_dialogue(player_name, None, "Когда ты будешь готова.")
+print_dialogue(player_name, "(про себя) М-да. Походу настал момент Х.")
+print(f"{Color.tech_grey}Подсказка: от исхода этого диалога зависит вся игровая вселенная. Будь внимательна.{Color.reset}")
+
+
+def handle_bad_choice(player_name):
+    print_dialogue(player_name, None, "Сдаться — твой окончательный выбор?")
+    sub_choice = input("(1) Я буду продолжать.\n(2) Да.\nВаш выбор: ").strip().lower()
+    if sub_choice == "2":
+        bad_ending(player_name)
+    elif sub_choice == "1":
+        game(player_name)
+    else:
+        print("Неизвестный выбор. Попробуйте еще раз.")
+        handle_bad_choice(player_name)
+
+def game(player_name):
+    print_dialogue(player_name, None, "Хорошо. Приступим.")
+    print_dialogue(player_name, None, "Мне нужно составить фиксированный список приглашённых на одно мероприятие таким образом,\nчтобы можно было узнать информацию о каждом, кто перечислен, но чтобы никто не мог изменить этот список приглашённых.\nЧто бы вы порекомендовали использовать?")
+    correct_answers = ["кортеж", "кортежи"]
+    while True:
+        answer = input().strip().lower()
+        if answer in correct_answers:
+            break
+        elif answer == "сдаюсь":
+            handle_bad_choice(player_name)
+            continue
+        else:
+            print("Ты ошибаешься. Это нормально. В любой момент ты можешь написать 'сдаюсь'")
+            continue
+
+    print_dialogue(player_name, "Конечно лучше использовать кортежи. В них хранятся неизменяемые данные, которым нельзя присвоить другое значение")
+    print_dialogue(player_name, None, "Да, я с Вами согласен. Ещё они занимают куда меньше места, чем списки")
+    print_dialogue(player_name, "Так, а это интересно!")
+    print_dialogue(player_name, None, "Сейчас будет ещё интереснее!")
+    print_dialogue(player_name, None, "Через какой тип цикла, как Вы думаете, работает система, которая запрашивает у человека верный пароль?")
+    print_dialogue(player_name, None, "Нет, не так. Если она ещё постоянно даёт подсказки при каждой попытке угадать?")
+    # Запрашиваем у игрока правильный ответ
+    correct_answer = "while" or "цикл while"
+    while True:
+        answer = input().strip().lower()
+        if answer == correct_answer:
+            break
+        elif answer == "сдаюсь":
+            handle_bad_choice(player_name)
+            continue
+        else:
+            print("Ты ошибаешься. Это нормально. В любой момент ты можешь написать 'сдаюсь'")
+            continue
+
+    print_dialogue(player_name, "Наверное, там используется цикл while?.. Это же цикл?")
+    print_dialogue(player_name, None, "Абсолютно. А какой оператор определяет соответствие правильному паролю?")
+    # Запрашиваем у игрока правильный ответ
+    correct_answer = "if"
+    while True:
+        answer = input().strip().lower()
+        if answer == correct_answer:
+            break
+        elif answer == "сдаюсь":
+            handle_bad_choice(player_name)
+            continue
+        else:
+            print("Ты ошибаешься. Это нормально. В любой момент ты можешь написать 'сдаюсь'")
+            continue
+
+    print_dialogue(player_name, "Оператор IF наверное...")
+    print_dialogue(player_name, None, "Вы абсолютно правы, но это было легко.")
+    print_dialogue(player_name, None, "Ладно, какой метод позволяет добавить в список новый элемент?")
+    correct_answer = "append" or ".append" or "extend" or ".extend"
+    while True:
+        answer = input().strip().lower()
+        if answer == correct_answer:
+            break
+        elif answer == "сдаюсь":
+            handle_bad_choice(player_name)
+            continue
+        else:
+            print("Ты ошибаешься. Это нормально. В любой момент ты можешь написать 'сдаюсь'")
+            continue
+
+    print_dialogue(player_name, "Append! Это же база.")
+    print_dialogue(player_name, None, "Приятно знать.")
+    print_dialogue(player_name, None, "Может тогда еще и списковый метод удаления назовете? :)")
+    correct_answer = "remove" or ".remove"
+    while True:
+        answer = input().strip().lower()
+        if answer == correct_answer:
+            break
+        elif answer == "сдаюсь":
+            handle_bad_choice(player_name)
+            return
+        else:
+            print("Ты ошибаешься. Это нормально. В любой момент ты можешь написать 'сдаюсь'")
+            continue
+    slow_print("Дмитрий улыбнулся и поставил кофе на стол.")
+    print_dialogue(player_name, None, "Истинное знание исключает невежество.")
+    print_dialogue(player_name, None, "Питон — это не просто язык программирования. Это инструмент, расширяющий понимание.")
+    print_dialogue(player_name, None, "И ты лишь начинаешь понимать его глубину.")
+    print_dialogue(player_name, None, "Истинные знания важны. Они — фундамент вселенной.")
+    print_dialogue(player_name, None, "Я верю тебе и в твое знание. Поэтому отпускаю тебя.")
+    print_dialogue(player_name, None, "Будь внимательна в своём пути, и он приведёт тебя к истине.")
+    print_dialogue(player_name, "Ээээ… Спасибо (ಥ﹏ಥ) ")
+    print_dialogue(player_name, None, "Прощайте.")
+    print_dialogue(player_name, "Досви-…")
+    slow_print("Вспышка.")
+
+def bad_ending(player_name):
+    print(f"{Color.tech_grey}Нажми Enter, чтобы перейти к финалу.{Color.reset}")
+    input()
+
+    def print_dialogue(player_name, player_dialogue, universe_dialogue=None):
+        if player_dialogue is not None:
+            print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+            slow_print(player_dialogue)
+        if universe_dialogue is not None:
+            print(f"{Color.universe}{universe}:{Color.reset} ", end='')
+            slow_print(universe_dialogue)
+
+    fast_print("""
+    ╔═════╗╔╗╔╗╔╗╔╗╔══╗─╔══╗
+    ║─╔╦╗─║║║║║║║║║║╔╗║─║╔╗║
+    ║─║║║─║║║║║║╚╝║║╚╝║─║║║║
+    ║─╚╩╝─║║║╔║║╔╗║║╔╗║─║║║║
+    ╚═╗─╔═╝║╚╝║║║║║║║║║╔╝║║║
+    ──╚═╝──╚══╝╚╝╚╝╚╝╚╝╚═╝╚╝
+    """)
+    print(f"{Color.tech_color} -- Глава последняя:  Разговор со Вселенной -- {Color.reset}")
+    print()
+    slow_print("Земля дрожит. Порывистый ветер бьёт в лицо. ")
+    slow_print("Ты открываешь глаза. ")
+    slow_print("То райское место из начала твоего пути теперь уже не узнать.")
+    print()
+    print()
+    slow_print("Перед тобой осыпавшееся высохшее дерево.")
+    print()
+    print_dialogue(player_name, None, "Что ты натворила..")
+    print()
+    slow_print("Рядом с тобой стоял таинственный страж, но теперь уже он не внушал никакого восхищения.")
+    slow_print("Он стал похож на слабого старика.")
+    print()
+    print_dialogue(player_name, None, "Всему конец.")
+    print_dialogue(player_name, "Простите...Мне так жаль...", "...")
+    print_dialogue(player_name, "Мне так жаль...", "...")
+    print()
+    print_dialogue(player_name, None, "Это уже не важно.")
+    print()
+    print_dialogue(player_name, None, "Спасибо, что попыталась.")
+
+    print()
+    slow_print("Существо медленно уходило вдаль.")
+    print()
+    slow_print("Ты села под огромным деревом и ждала конца, разглядывая остатки листвы.")
+    print()
+    slow_print("Вселенная обречена. И всё это из-за вас.")
+    print()
+    outro(player_name)
+    sys.exit()
+game("")
+
+
+print(f"{Color.tech_grey}Нажми Enter, чтобы перейти к финалу.{Color.reset}")
+input()
+
+fast_print("""
+╔═════╗╔╗╔╗╔╗╔╗╔══╗─╔══╗
+║─╔╦╗─║║║║║║║║║║╔╗║─║╔╗║
+║─║║║─║║║║║║╚╝║║╚╝║─║║║║
+║─╚╩╝─║║║╔║║╔╗║║╔╗║─║║║║
+╚═╗─╔═╝║╚╝║║║║║║║║║╔╝║║║
+──╚═╝──╚══╝╚╝╚╝╚╝╚╝╚═╝╚╝
+""")
+print(f"{Color.tech_color} -- Глава последняя:  Разговор со Вселенной -- {Color.reset}")
+
+def print_dialogue(player_name, player_dialogue, universe_dialogue=None):
+    if player_dialogue is not None:
+        print(f"{Color.user}{player_name}:{Color.reset} ", end='')
+        slow_print(player_dialogue)
+    if universe_dialogue is not None:
+        print(f"{Color.universe}{universe}:{Color.reset} ", end='')
+        slow_print(universe_dialogue)
+
+#ХОРОШАЯ КОНЦОВКА
+def good_ending(player_name):
+    print()
+    slow_print("Громкий звук. Хлопок. ")
+    slow_print("Ты открываешь глаза. ")
+    slow_print("Снова это дерево.")
+    print()
+    print()
+    slow_print("Вокруг подозрительно тихо.")
+
+    print_dialogue(player_name, "........")
+    print_dialogue(player_name, "ДАААА Я СМОГЛА. Я СДЕЛАЛА ЭТО!!!!")
+    print_dialogue(player_name, "КТО БЫ МОГ ПОДУМАТЬ!", "И правда сделала.")
+    print()
+    slow_print("Внезапный голос напугал тебя до усрачки и ты упала. Опять.")
+    slow_print("Это был страж.")
+    print()
+    print_dialogue(player_name, "Ты.....")
+    print_dialogue(player_name, "ТЫЫЫЫЫЫЫЫЫ.", "Так эээээ ану спокойно. Я говорю, что ты героиня вселенной!")
+    print_dialogue(player_name, "ВОЗВРАЩАЙ МЕНЯ ОБРАТНО НЕМЕДЛЕННО.",
+                   "Ладно, ладно! Дай выразить благодарность только!")
+    print_dialogue(player_name, None, "Я у тебя в долгу. Благодарю.")
+    print_dialogue(player_name, "Ага. не забудь оставить номер телефона, свяжемся.",
+                   "Помогу на следующей контрольной.")
+    print_dialogue(player_name, "Вот это принимается. Договор.")
+
+    print()
+    slow_print("Крепкое рукопожатие скрепило сделку, и ты отправилась домой.")
+    print()
+    print(f"{Color.tech_grey}Подсказка: вы разблокировали секретное слово -- НЕВЕЖЕСТВО.{Color.reset}")
+good_ending(player_name)
+outro(player_name)
